@@ -14,7 +14,7 @@ export class Trip{
         // TODO put something in the button onclick 
         return`
         <div class="trip d-flex flex-column">
-            <h3 class="m-1 p-1">${this.name}<span class="mx-4 fs-6 text-muted">Thursday July 9, 2022</span> <button class="btn close-x m-1 selectable"><p class="mdi mdi-close m-0 p-0 text-secondary"></p></button></h3>
+            <h3 class="m-1 p-1">${this.name}<span class="mx-4 fs-6 text-muted">Thursday July 9, 2022</span> <button onclick="app.tripsController.deleteTrip('${this.id}')" class="btn close-x m-1 selectable"><p class="mdi mdi-close m-0 p-0 text-secondary"></p></button></h3>
             <p class="reservation">Reservation including all of it's associated details</p>
             <p class="reservation">Reservation including all of it's associated details</p>
                 <button class="align-self-end btn btn-primary p-2 m-1 btn-add">Add +</button>

@@ -3,6 +3,11 @@ import { Trip } from "../Models/Trip.js"
 
 
 class TripsService{
+    deleteTrip(id) {
+        ProxyState.trips = ProxyState.trips.filter(t => t.id != id);
+    }
+
+
     addTrip(tripData){
         console.log('got tripData in service', tripData);
         ProxyState.trips = [...ProxyState.trips, new Trip(tripData)]
