@@ -1,1 +1,32 @@
 /* BASIC STYLES HERE */
+
+
+.trip{
+    background-color: rgb(238, 247, 255);
+    margin-top: 1em;
+    border-radius: 2%;
+    box-shadow: 2px 2px 2px rgba(20, 20, 20, .3); 
+}
+.close-x{
+    padding: .2em .3em;
+    
+}
+
+.btn-add{
+    max-width: 10%;
+}
+
+.reservation{
+    padding: 1em;
+    margin: 1em;
+    background-color: rgba(255, 255, 255, .8);
+    border-radius: 2%;
+    box-shadow: 2px 2px 2px rgba(20, 20, 20, .3); 
+}
+
+.textbox{
+    padding: 1em;
+    margin: 1em;
+    border-radius: 2%;
+    box-shadow: 2px 2px 2px rgba(20, 20, 20, .3); 
+}
