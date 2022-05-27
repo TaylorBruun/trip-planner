@@ -43,7 +43,7 @@ export class TripsController {
             // @ts-ignore
             name: form.name.value,
             // @ts-ignore
-            date: form.date.value.toString(),
+            date: form.date.value,
         }
         tripsService.addTrip(tripData)
         console.log('passed tripData from controller', tripData);
