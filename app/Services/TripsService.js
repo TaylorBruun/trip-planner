@@ -15,7 +15,14 @@ class TripsService{
     }
 
 
-
+    updateTrip(text, id){
+        let foundTrip = ProxyState.trips.find(t => t.id = id)
+        foundTrip.notes = text
+        ProxyState.trips = ProxyState.trips
+        console.log(ProxyState.trips);
+        console.log(text);
+        console.log(foundTrip);
+    }
 
 }
 

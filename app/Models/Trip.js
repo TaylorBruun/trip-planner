@@ -3,11 +3,11 @@ import { generateId } from "../Utils/generateId.js";
 
 export class Trip{
     constructor(tripData){
-        this.id = generateId()
+        this.id = tripData.id || generateId()
         this.name = tripData.name
-       
+        this.notes = tripData.notes || ''
         this.date = tripData.date
-        this.cost = 0
+        this.cost = tripData.cost || 0
     }
 
     get Template(){
@@ -20,7 +20,7 @@ export class Trip{
                 <button class="align-self-end btn btn-primary p-2 m-1 btn-add">Add +</button>
              
                 
-            <textarea class="textbox" name="Trip Notes" id="" cols="30" rows="10"></textarea>
+            <textarea onblur="app.tripsController.updateTrip('${this.id}')" class="textbox" placeholder="Write notes for your trip." name="Trip Notes" id="" cols="30" rows="10">${this.notes}</textarea>
             <h5 class="align-self-end p-1 m-1" >Total: $${this.cost.toFixed(2)}</h5>
           </div>`
     }
