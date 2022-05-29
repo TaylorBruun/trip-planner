@@ -16,7 +16,14 @@ export class Reservation{
 
     get Template(){
         return`
-        <div class="row reservation d-flex justify-content-between"> <div class="pr-1 col-1">${this.type}</div><div class="pr-1 col-3">${this.name}</div><div class="pr-1 col-1">${this.confNum}</div><div class="pr-1 col-3">${this.address}</div><div class="pr-1 col-2">${this.date.toDateString()}</div><div class="col-1">$${this.cost}</div > <div onclick="app.reservationsController.deleteReservation('${this.id}')" class='selectable col-1 mdi mdi-delete'> </div> </div>
+        <div class="row reservation d-flex justify-content-between"> <div class="py-1 border-bottom  col-md-1">${this.type}</div>
+        <div class="py-1 border-bottom  col-md-3">${this.name}</div>
+        <div class="py-1 border-bottom  col-md-1">${this.confNum}</div>
+        <div class="py-1 border-bottom  col-md-3">${this.address}</div>
+        <div class="py-1 border-bottom  col-md-2">${this.date.toDateString()}</div>
+        <div class= "py-1 border-bottom col-md-1">$${this.cost}</div>
+        <div onclick="app.reservationsController.deleteReservation('${this.id}')" class=' py-1 border-bottom  col-md-1 '> <p class='reservation-delete fs-5 selectable mdi mdi-delete m-0'> </p> </div> 
+        </div>
         `
     }
 }

@@ -73,8 +73,8 @@ export class TripsController {
         console.log(ProxyState.reservations);
     }
     
-    addTrip(passedString) {
-        // console.log('hitting addTrip in controller', passedString);
+    addTrip() {
+        // console.log('hitting addTrip in controller');
         window.event.preventDefault()
         let form = window.event.target
         let tripData = {

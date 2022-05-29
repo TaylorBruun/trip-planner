@@ -9,8 +9,12 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/style/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Spline+Sans+Mono:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="assets/style/style.css">
-   <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css'>
+  <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css'>
   <title>trip-planner</title>
 </head>
 
@@ -43,7 +47,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <form action="" onsubmit="app.tripsController.addTrip('onsubmit')">
+                <form action="" onsubmit="app.tripsController.addTrip()">
                   <input required minlength="3" maxlength="15" type="text" name="name" id="name">
                   <input required type="date" name="date" id="date">
                 </div>
