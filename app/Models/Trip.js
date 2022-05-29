@@ -90,8 +90,8 @@ export class Trip{
         ProxyState.reservations.forEach(r => {
             if (r.tripId == this.id) {
                 template += r.Template
-                console.log(r.tripId, 'RES ID');
-                console.log(this.id, 'TRIP ID');
+                // console.log(r.tripId, 'RES ID');
+                // console.log(this.id, 'TRIP ID');
             }
         })
 

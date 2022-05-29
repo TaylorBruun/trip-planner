@@ -8,6 +8,22 @@ import { Pop } from "../Utils/Pop.js";
 function _drawTrips() {
     if (ProxyState.trips.length > 0) {
         let template = ''
+        ProxyState.reservations.sort((a, b) => a.date - b.date)
+
+        ProxyState.trips.forEach(t => {
+            // console.log(t);
+            let tripTotalCost = 0
+            ProxyState.reservations.forEach(r => {
+                // console.log(r);
+                if (r.tripId == t.id) {
+                    tripTotalCost += r.cost
+                    // console.log(r.cost, "r.cost");
+                    // console.log(tripTotalCost, "total cost");
+                }
+            })
+            t.cost = tripTotalCost
+            // console.log(t.cost);
+        })
         ProxyState.trips.forEach(t => {
             template += t.Template
         })
@@ -18,14 +34,14 @@ function _drawTrips() {
     }
 }
 
-
+//unused, see note at _draw
 function _drawResModals() {
     let template = ''
     ProxyState.trips.forEach(t => {
         template += t.ResTemplate
     })
     document.getElementById('reservation-modals').innerHTML = template
-    console.log('drawing modals')
+    // console.log('drawing modals')
 }
 
 function _confirmSave(){
@@ -33,7 +49,7 @@ function _confirmSave(){
 }
 
 
-// _drawResModals is an artifact of my foolhardy attempt to draw separate modals to the page
+// _drawResModals is an artifact of my foolhardy attempt to draw separate modals to the page. This was not workable because of suspected wonkiness involving injection of modals (the submit buttons which worked when hardcoded did not trigger the "onsubmit" NOTE consider revisiting with popover instead)
 function _draw(){
     _drawTrips()
     // _drawResModals()
@@ -53,9 +69,12 @@ export class TripsController {
     showTrips(){
         console.log(ProxyState.trips);
     }
+    showReservations(){
+        console.log(ProxyState.reservations);
+    }
     
     addTrip(passedString) {
-        console.log('hitting addTrip in controller', passedString);
+        // console.log('hitting addTrip in controller', passedString);
         window.event.preventDefault()
         let form = window.event.target
         let tripData = {
@@ -65,19 +84,21 @@ export class TripsController {
             date: form.date.value,
         }
         tripsService.addTrip(tripData)
-        console.log('passed tripData from controller', tripData);
+        // console.log('passed tripData from controller', tripData);
         _confirmSave()
     }
 
-    deleteTrip(id){
-        console.log('hitting delete function in controller', id)
-        console.log(ProxyState.trips)
-        tripsService.deleteTrip(id)
+    async deleteTrip(id){
+        // console.log('hitting delete function in controller', id)
+        // console.log(ProxyState.trips)
+        if(await Pop.confirm("Really delete this trip?")){
+            tripsService.deleteTrip(id)
+        }
     }
 
     updateTrip(id){
         let textbox = window.event.target
-        console.log(textbox.value, id, 'from controller');
+        // console.log(textbox.value, id, 'from controller');
         tripsService.updateTrip(textbox.value, id)
 
 
