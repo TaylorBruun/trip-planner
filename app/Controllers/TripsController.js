@@ -18,16 +18,35 @@ function _drawTrips() {
     }
 }
 
+
+function _drawResModals() {
+    let template = ''
+    ProxyState.trips.forEach(t => {
+        template += t.ResTemplate
+    })
+    document.getElementById('reservation-modals').innerHTML = template
+    console.log('drawing modals')
+}
+
 function _confirmSave(){
     Pop.toast("Trip Saved!", 'success')
 }
 
+
+// _drawResModals is an artifact of my foolhardy attempt to draw separate modals to the page
+function _draw(){
+    _drawTrips()
+    // _drawResModals()
+}
+
 export class TripsController {
     constructor() {
-        ProxyState.on('trips', _drawTrips)
+        ProxyState.on('trips', _draw)
         ProxyState.on('trips', saveState)
-        // This gets commented out to go back to hardcode html for layout testing
-        _drawTrips()
+        ProxyState.on('reservations', _draw)
+        ProxyState.on('reservations', saveState)
+        // // This gets commented out to go back to hardcode html for layout testing
+        _draw()
         loadState()
     }
     
@@ -58,7 +77,7 @@ export class TripsController {
 
     updateTrip(id){
         let textbox = window.event.target
-        console.log(textbox.value, id);
+        console.log(textbox.value, id, 'from controller');
         tripsService.updateTrip(textbox.value, id)
 
 
