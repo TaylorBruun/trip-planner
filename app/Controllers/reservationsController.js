@@ -31,5 +31,6 @@ export class ReservationsController{
 
     deleteReservation(id){
         console.log('calling deleteReservation in controller on', id);
+        reservationsService.deleteReservation(id)
     }
 }

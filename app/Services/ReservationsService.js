@@ -3,6 +3,10 @@ import { Reservation } from "../Models/Reservation.js"
 
 
 class ReservationsService{
+    deleteReservation(id) {
+        console.log('called deleteReservation in service on', id);
+        ProxyState.reservations = ProxyState.reservations.filter(r => r.id != id)
+    }
 
     addReservation(reservationData){
         console.log('service got data', reservationData);
