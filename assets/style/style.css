@@ -14,6 +14,7 @@
 
 .btn-add{
     max-width: 8%;
+   
 }
 
 .reservation{
@@ -35,7 +36,20 @@
     font-family: 'Spline Sans Mono', monospace;
 }
 
-.reservation-delete{
+.select-contain{
     width: 1em;
     height: 1.5em;
+}
+
+.flip{
+  transform: rotate(180deg);
+  
+}
+
+.btn-collapse{
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    position: relative;
+    
 }

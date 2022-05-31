@@ -22,7 +22,7 @@ export class Reservation{
         <div class="py-1 border-bottom  col-md-3">${this.address}</div>
         <div class="py-1 border-bottom  col-md-2">${this.date.toDateString()}</div>
         <div class= "py-1 border-bottom col-md-1">$${this.cost}</div>
-        <div onclick="app.reservationsController.deleteReservation('${this.id}')" class=' py-1 border-bottom  col-md-1 '> <p class='reservation-delete fs-5 selectable mdi mdi-delete m-0'> </p> </div> 
+        <div onclick="app.reservationsController.deleteReservation('${this.id}')" class=' py-1 border-bottom  col-md-1 '> <p class='select-contain fs-5 selectable mdi mdi-delete m-0'> </p> </div> 
         </div>
         `
     }

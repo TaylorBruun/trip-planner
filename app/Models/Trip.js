@@ -15,8 +15,14 @@ export class Trip{
         
         return`
         <div class="trip d-flex flex-column">
+          <div class="row">
+            <div class="col-11">
             <h3 class="title m-1 p-1">${this.name}<span class="mx-4 fs-6 text-muted">${this.date.toDateString()}</span> <button onclick="app.tripsController.deleteTrip('${this.id}')" class="btn close-x m-1 selectable"><p class="mdi mdi-close m-0 p-0 text-secondary"></p></button></h3>
-            
+            </div>
+            <button onclick='app.tripsController.flipIcon()' class="mdi mdi-menu-down p-0 my-1 btn btn-light btn-collapse col-1 text-secondary fs-3" data-bs-toggle="collapse" data-bs-target="#collapse${this.id}"></button>
+          </div>
+
+          <div class='collapse' id="collapse${this.id}">
             ${this.Reservations}
               
            
@@ -50,7 +56,7 @@ export class Trip{
             <h5 class="align-self-end p-1 m-1" >Total: $${this.cost.toFixed(2)}</h5>
           </div>
           
-    
+    </div>
           
           `
     }

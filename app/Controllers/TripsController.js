@@ -100,8 +100,14 @@ export class TripsController {
         let textbox = window.event.target
         // console.log(textbox.value, id, 'from controller');
         tripsService.updateTrip(textbox.value, id)
+    }
 
-
+    flipIcon(){
+        let icon = window.event.target
+        // console.log(icon, 'icon');
+        // console.log(window.event.target, 'window target');
+        icon.classList.toggle('flip')
+           
     }
 
 
